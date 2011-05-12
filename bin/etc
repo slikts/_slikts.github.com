@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $# -ne 2 ]; then
+	echo "Usage: $0 <filename>">&2
+	exit 2
+fi
+
+if [ -f /etc/$1 ]; then
+	sudo EDITOR /etc/$1
+elif [ -f /usr/local/etc/$1 ]; then
+	sudo EDITOR /usr/local/etc/$1
+else
+	echo "Not found: $1">&2
+	exit 2
+fi
