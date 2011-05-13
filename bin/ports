@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ne 1 ]; then
+	echo Port search: $1>&2
+
+	cd /usr/ports
+	make quicksearch name=$1
+else
+	echo "Port search
+Usage: $0 <name>">&2
+fi
